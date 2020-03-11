@@ -10,6 +10,7 @@
         <commons-lang3.version>3.9</commons-lang3.version>
         <compiler-plugin.version>3.8.1</compiler-plugin.version>
         <h2.version>1.4.200</h2.version>
+        <jackson-datatype-jsr310.version>2.4.0</jackson-datatype-jsr310.version>
         <maven.compiler.parameters>true</maven.compiler.parameters>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -20,7 +21,7 @@
         <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
         <quarkus.platform.version>1.2.1.Final</quarkus.platform.version>
         <surefire-plugin.version>2.22.1</surefire-plugin.version>
-        <jackson-datatype-jsr310.version>2.4.0</jackson-datatype-jsr310.version>
+        <hsqldb.version>2.5.0</hsqldb.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -52,11 +53,11 @@
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-hibernate-orm-panache</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>${h2.version}</version>
-        </dependency>
+        <!--    <dependency>-->
+        <!--      <groupId>com.h2database</groupId>-->
+        <!--      <artifactId>h2</artifactId>-->
+        <!--      <version>${h2.version}</version>-->
+        <!--    </dependency>-->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
@@ -69,6 +70,12 @@
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-resteasy-jackson</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.hsqldb/hsqldb -->
+        <dependency>
+            <groupId>org.hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <version>${hsqldb.version}</version>
         </dependency>
     </dependencies>
     <build>

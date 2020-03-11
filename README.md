@@ -1,4 +1,4 @@
-# myflashcards 
+# myFlashcards 
 myFlashcards - simple app for learning with flash-cards
 
 This project uses:
