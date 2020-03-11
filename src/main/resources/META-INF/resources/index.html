@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!-- saved from url=(0068)http://192.168.1.19:5500/Preparing%20for%20the%20naturalization.html -->
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/milligram.css">
+    <script src="./js/axios.min.js"></script>
+    <script src="./js/vue.js"></script>
+    <title>Document</title>
+    <style>
+        h5 {
+            color: brown;
+            font-weight: bold;
+        }
+        .question {
+            display: block;
+            border: 1px dotted #eee;
+            padding: 1em;
+            margin-top: 10px;
+            color: black;
+        }
+        ul {
+            margin-bottom: 0px;
+        }
+        @media print {
+	        .break	{ display: block; page-break-before: always; }
+        }
+
+
+
+
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <p></p>
+    <div class="row">
+        <div id="app" class="column">
+            <button v-on:click="getRandom">Random</button>
+            <div class="question">
+                <h5>{{ question.number }}. {{ question.question }} </h5>
+                <ul>
+                    <li v-for="answer in question.answers">
+                        {{answer}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+var app = new Vue({
+  el: '#app',
+  data: {
+    question:{
+  "id": 9,
+  "question": "What are two rights in the Declaration of Independence?",
+  "answers": [
+    "life",
+    "liberty",
+    "pursuit of happiness"
+  ],
+  number: 9,
+  "showingsCount": 0,
+  "tags": null,
+  "createdAt": null,
+  "updatedAt": null,
+  "createdBy": null,
+  "updatedBy": null
+},
+    message: 'Hello Vue!'
+  },
+  methods: {
+    showAnswer: function() {
+    },
+    getRandom: function() {
+
+        axios
+            .get('http://localhost:8080/flashcard/random')
+            .then(response => this.question = response.data)
+    },
+    reverseMessage: function () {
+
+        this.message = this.message.split('').reverse().join('')
+    }
+  }
+})
+
+
+
+
+</script>
+</body>
+</html>
