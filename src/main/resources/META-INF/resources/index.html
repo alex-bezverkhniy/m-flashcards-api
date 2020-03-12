@@ -30,22 +30,31 @@
         @media print {
 	        .break	{ display: block; page-break-before: always; }
         }
-
-
-
-
+        .hide {
+            display: none;
+        }
+        .center {
+            text-align: center;
+        }
+        .left {
+            
+            text-align: left;
+        }
+        .my-btn {
+            width: 200px;
+        }
     </style>
 </head>
-
 <body>
 <div class="container">
     <p></p>
     <div class="row">
-        <div id="app" class="column">
-            <button v-on:click="getRandom">Random</button>
-            <div class="question">
+        <div id="app" class="column center">
+            <button ref="randomBtn" v-on:click="getRandom" class="my-btn hide">Random</button>
+            <button ref="showAnswerBtn" v-on:click="showAnswer" class="my-btn button-outline">Show Answer</button>
+            <div class="question left">
                 <h5>{{ question.number }}. {{ question.question }} </h5>
-                <ul>
+                <ul id="answerUl" class="hide">
                     <li v-for="answer in question.answers">
                         {{answer}}
                     </li>
@@ -76,14 +85,28 @@ var app = new Vue({
 },
     message: 'Hello Vue!'
   },
+  mounted: function () {
+    console.log('mounted');
+    this.randomBtn = this.$refs.randomBtn;
+    this.showAnswerBtn = this.$refs.showAnswerBtn;
+    this.answerUl = this.$el.querySelector('#answerUl');      
+  },
   methods: {
     showAnswer: function() {
+        this.randomBtn.classList.remove('hide');
+        this.answerUl.classList.remove('hide');
+        this.showAnswerBtn.classList.add('hide');
     },
     getRandom: function() {
 
         axios
-            .get('http://localhost:8080/flashcard/random')
-            .then(response => this.question = response.data)
+            .get('/flashcard/random')
+            .then(response => {
+                this.question = response.data;
+                this.randomBtn.classList.add('hide');
+                this.answerUl.classList.add('hide');
+                this.showAnswerBtn.classList.remove('hide');
+            })
     },
     reverseMessage: function () {
 
@@ -91,6 +114,7 @@ var app = new Vue({
     }
   }
 })
+
 
 
 
