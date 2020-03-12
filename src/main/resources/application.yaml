@@ -26,6 +26,7 @@
         generation: drop-and-create
     http:
       test-port: 8083
+
 "%prod":
   quarkus:
     datasource:
