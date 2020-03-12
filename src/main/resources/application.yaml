@@ -43,5 +43,3 @@
       always-include: true
     native:
       debug-build-process: true
-    http:
-      port: $PORT
