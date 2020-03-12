@@ -44,4 +44,4 @@
     native:
       debug-build-process: true
     http:
-      port: 80
+      port: $PORT
