@@ -1,0 +1,1 @@
+web: java -jar target/myflashcards-1.0.0-SNAPSHOT-runner.jar
