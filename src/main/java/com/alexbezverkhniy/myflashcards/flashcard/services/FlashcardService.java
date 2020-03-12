@@ -14,7 +14,7 @@ public class FlashcardService extends BaseService<Flashcard, FlashcardRepository
     }
 
     public Flashcard getRandom() {
-        final List<Flashcard> res = repository.find("SELECT o FROM Flashcard o ORDER BY random()").list();
+        final List<Flashcard> res = repository.find("SELECT o FROM Flashcard o ORDER BY RAND()").list();
         return (res != null && !res.isEmpty()) ? res.get(0) : null;
     }
 }
