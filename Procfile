@@ -1,1 +1,1 @@
-web: java -Dquarkus.http.port=$PORT -jar target/myflashcards-1.0.0-SNAPSHOT-runner.jar
+web: java -Dquarkus.http.port=$PORT -jar target/m-flashcards-api-1.0.0-SNAPSHOT-runner.jar
