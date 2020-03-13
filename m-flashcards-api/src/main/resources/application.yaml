@@ -1,0 +1,46 @@
+"%dev":
+  quarkus:
+    datasource:
+      url: jdbc:hsqldb:file:./.myflashcards/myflashcards.db;sql.syntax_pgs=true
+      driver: org.hsqldb.jdbc.JDBCDriver
+      username: myflashcards
+      password: myflashcards
+    hibernate-orm:
+      dialect: org.hibernate.dialect.HSQLDialect
+      # drop and create the database at startup (use `update` to only update the schema)
+      database:
+        generation: drop-and-create
+    http:
+      test-port: 8083
+"%test":
+  quarkus:
+    datasource:
+      url: jdbc:hsqldb:file:./.myflashcards/myflashcards.db;sql.syntax_pgs=true
+      driver: org.hsqldb.jdbc.JDBCDriver
+      username: myflashcards
+      password: myflashcards
+    hibernate-orm:
+      dialect: org.hibernate.dialect.HSQLDialect
+      # drop and create the database at startup (use `update` to only update the schema)
+      database:
+        generation: drop-and-create
+    http:
+      test-port: 8083
+
+"%prod":
+  quarkus:
+    datasource:
+      url: jdbc:hsqldb:file:./.myflashcards/myflashcards.db;sql.syntax_pgs=true
+      driver: org.hsqldb.jdbc.JDBCDriver
+      username: myflashcards
+      password: myflashcards
+    hibernate-orm:
+      dialect: org.hibernate.dialect.HSQLDialect
+      # drop and create the database at startup (use `update` to only update the schema)
+      database:
+        generation: drop-and-create
+      sql-load-script: import.sql
+    swagger-ui:
+      always-include: true
+    native:
+      debug-build-process: true
