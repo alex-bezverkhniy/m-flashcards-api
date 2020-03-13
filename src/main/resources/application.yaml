@@ -12,6 +12,8 @@
         generation: drop-and-create
     http:
       test-port: 8083
+      cors:
+        origins: http://localhost9000,https://m-flashcards-stage.herokuapp.com,https://m-flashcards.herokuapp.com/
 "%test":
   quarkus:
     datasource:
@@ -26,7 +28,8 @@
         generation: drop-and-create
     http:
       test-port: 8083
-
+      cors:
+        origins: http://localhost9000,https://m-flashcards-stage.herokuapp.com,https://m-flashcards.herokuapp.com/
 "%prod":
   quarkus:
     datasource:
@@ -44,3 +47,6 @@
       always-include: true
     native:
       debug-build-process: true
+    http:
+      cors:
+        origins: http://localhost9000,https://m-flashcards-stage.herokuapp.com,https://m-flashcards.herokuapp.com/
